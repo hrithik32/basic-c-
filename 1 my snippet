@@ -1,15 +1,20 @@
-/*
- #define HCS           Hrithik Chandra Saha
-*/
+<snippet>
+	<content><![CDATA[
 
 #include <bits/stdc++.h>
-
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
 using namespace std;
+using namespace __gnu_pbds;
+typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> pbds; // find_by_order, order_of_key
 
 #define int            long long int
 #define F              first
 #define S              second
 #define pb             push_back
+#define mp             make_pair
+#define ub             upper_bound
+#define lb             lower_bound
 #define si             set <int>
 #define vi             vector <int>
 #define pii            pair <int, int>
@@ -19,32 +24,64 @@ using namespace std;
 #define mpi            map <pii, int>
 #define spi            set <pii>
 #define endl           "\n"
+#define lcm(x,y)	   x*y/__gcd(x,y)
+#define cy             cout<<"YES"<<endl;
+#define cn             cout<<"NO"<<endl;
 #define sz(x)          ((int) x.size())
 #define all(p)         p.begin(), p.end()
+#define rall(v)		   v.rbegin(),v.rend()
+#define srt(v)		   sort(v.begin(),v.end());
+#define rsrt(v)		   sort(v.rbegin(),v.rend());
 #define double         long double
-#define mid(l,r)	     (l+(r-l)/2)
+#define mid(l,r)	   (l+(r-l)/2)
 #define que_max        priority_queue <int>
 #define que_min        priority_queue <int, vi, greater<int>>
-#define bug(...)       __f (#__VA_ARGS__, __VA_ARGS__)
-#define print1(a)       for(auto x : a) cout << x << " "; cout << endl
-#define print2(a)      for(auto x : a) cout << x.F << " " << x.S << endl
-#define print3(a,x,y)  for(int i = x; i < y; i++) cout<< a[i]<< " "; cout << endl
+#define print1(a)      for(auto x : a) cout << x << " "; cout << endl;
+#define print2(a)      for(auto x : a) cout << x.F << " " << x.S << endl;
+#define print3(a,x,y)  for(int i = x; i < y; i++) cout<< a[i]<< " "; cout << endl;
+#define vin(x,n)	   vi x(n); for (int i = 0; i < n; ++i){cin>>x[i];}
+#define srtbypairsc(v) sort(v.begin(), v.end(), []( pair<int, int>& l, pair<int, int>& r) { return l.second < r.second; } );
 
+void __print(int x) {cerr << x;}
+void __print(unsigned x) {cerr << x;}
+void __print(unsigned long long x) {cerr << x;}
+void __print(float x) {cerr << x;}
+void __print(double x) {cerr << x;}
+void __print(char x) {cerr << '\'' << x << '\'';}
+void __print(const char *x) {cerr << '\"' << x << '\"';}
+void __print(const string &x) {cerr << '\"' << x << '\"';}
+void __print(bool x) {cerr << (x ? "true" : "false");}
 
-template <typename Arg1>
-void __f (const char* name, Arg1&& arg1) { cout << name << " : " << arg1 << endl; }
-template <typename Arg1, typename... Args>
-void __f (const char* names, Arg1&& arg1, Args&&... args)
-{
-	const char* comma = strchr (names + 1, ',');
-	cout.write (names, comma - names) << " : " << arg1 << " | "; __f (comma + 1, args...);
-}
+template<typename T, typename V>
+void __print(const pair<T, V> &x) {cerr << '{'; __print(x.first); cerr << ','; __print(x.second); cerr << '}';}
+template<typename T>
+void __print(const T &x) {int f = 0; cerr << '{'; for (auto &i: x) cerr << (f++ ? "," : ""), __print(i); cerr << "}";}
+void _print() {cerr << "]\n";}
+template <typename T, typename... V>
+void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v...);}
+#ifndef ONLINE_JUDGE
+#define bug(x...) cerr << "[" << #x << "] = ["; _print(x);
+#else
+#define bug(x...);
+#endif
 
+const int MOD = 1e9 + 7;
 const int N = 200005;
+
+
+vi vis(N);
+vi primes;
+void genprimes(){
+	for (int i = 2; i  < N; ++i) if (!vis[i]) {
+	primes.pb(i);
+    for (int j = i ; j < N; j += i) vis[j] = 1;
+  }
+}
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
 
 void solve() {
 	
-
+$2
 	
 	
 	
@@ -62,11 +99,19 @@ int32_t main()
 	clock_t z = clock();
 
 	int t = 1;
-	// cin >> t;
-	while (t--) solve();
-
+	$1// cin >> t;
+	for(int i=1;i<=t;i++){
+        //cout<<"Case "<<i<<": ";
+        solve();
+    }
 	cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
 
 	return 0;
 }
  
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>cpp</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
